@@ -8,10 +8,10 @@ oracledb
 tabulate
 '''
 
-usuario = "RPOS_USER"
-contrasenia = "rp0sUser12"
-puerto = 1525
-host = "172.29.40.64"
+usuario = "usuario"
+contrasenia = "pass"
+puerto = "puerto"
+host = "ip o dns"
 
 
 # QUERY
@@ -34,7 +34,7 @@ DML_DELETE = """
     """
 
 # Abrir conexion
-with oracledb.connect(user=usuario, password=contrasenia, port=puerto, dsn="172.29.40.64/QAPNPOS") as conexion:
+with oracledb.connect(user=usuario, password=contrasenia, port=puerto, dsn="ip_o_dns/instancia") as conexion:
     # Crear Cursor
     with conexion.cursor() as consulta:
         # Ejecutar query
