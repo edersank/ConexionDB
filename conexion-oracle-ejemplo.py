@@ -14,7 +14,7 @@ puerto = 1525
 host = "172.29.40.64"
 
 
-# Consulta
+# QUERY
 DML_CONSULTA = """SELECT employee_id, first_name, last_name, salary 
                 FROM employees ORDER BY employee_id DESC"""
 # Insertar
@@ -33,16 +33,22 @@ DML_DELETE = """
                 DELETE FROM hr.employees WHERE employee_id = 211
     """
 
-
+# Abrir conexion
 with oracledb.connect(user=usuario, password=contrasenia, port=puerto, dsn="172.29.40.64/QAPNPOS") as conexion:
+    # Crear Cursor
     with conexion.cursor() as consulta:
+        # Ejecutar query
         consulta.execute(DML_CONSULTA)
+        # Obtener consulta como lista
         resultado = consulta.fetchall()
 
+    # Iteracion con for
     # for filas in resultado:
     #     print(filas)
     #     print("------------------------------------------------------------------------------------------------------\n")
 
+# Creacion de headers para tabla
 headers = ["Id Empleado", "Nombre", "Apellido", "Email", "Contratacio", "Id Puesto",
            "Salario", "Id Manager", "Id Departamento"]
+# Uso de tabulate para construir tabla
 print(tabulate(resultado, headers, tablefmt="rounded_grid"))

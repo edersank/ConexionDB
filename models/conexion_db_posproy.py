@@ -5,10 +5,10 @@ from tabulate import tabulate
 class ConexionPosProyectosDb:
     # Constructor
     def __init__(self):
-        self.usuario = "HR"
-        self.contrasenia = "hr"
-        self.host = "localhost"
-        self.puerto = 1521
+        self.__usuario = "HR"
+        self.__contrasenia = "hr"
+        self.__dns = "localhost/xepdb1"
+        self.__puerto = 1521
 
     # Abre conexion
 
